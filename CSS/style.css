@@ -155,7 +155,6 @@ nav button {
   position: relative;
   cursor: pointer;
   /* z-index: 10000; */
-  /* border: 3px solid red; */
 }
 
 .nav__profile ul {
@@ -357,6 +356,7 @@ footer ul a:hover {
   width: 30rem;
   background: var(--color-grey-900);
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
@@ -535,7 +535,6 @@ footer ul a:hover {
   .nav__profile ul {
     top: 100%;
     width: 100%;
-    /* border: 40px solid red; */
   }
 
   .nav__profile .avatar {
@@ -550,14 +549,41 @@ footer ul a:hover {
 
   /* ================ GENERAL FORM ================  */
   form {
-    /* border: 4px white solid; */
     width: 100%;
+    /* border: 4px solid red; */
   }
 
   .form__section-container {
     padding: 3rem;
     width: 100%;
-    /* border: 3px solid red; */
+  }
+
+  /* ================ DASJBOARD ================  */
+  .dashboard__container {
+    grid-template-columns: 4.3rem auto;
+    padding: 0;
+    background: transparent;
+  }
+
+  .dashboard aside h5 {
+    display: none;
+  }
+
+  .dashboard main table thead {
+    display: none;
+  }
+
+  .dashboard main table tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dashboard main table tr:nth-child(even) {
+    background: var(--color-grey-900);
+  }
+
+  .dashboard main table tr:hover td {
+    background: transparent;
   }
 }
 
@@ -635,6 +661,59 @@ footer ul a:hover {
   .form__section-container {
     padding: 0;
   }
+
+  /* ======================= Dashboard ======================= */
+  .dashboard {
+    margin-top: 5rem;
+  }
+
+  .dashboard__container {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .dashboard main {
+    margin: 0;
+  }
+
+  .dashboard main h2 {
+    margin-top: 1.2rem;
+  }
+
+  .dashboard aside {
+    position: fixed;
+    box-shadow: 2rem 0 4rem rgba(0, 0, 0, 0.4);
+    left: -100%;
+    top: 2;
+    height: 100vh;
+    transition: var(--transition);
+    background: blueviolet;
+  }
+
+  .dashboard .sidebar__toggle {
+    display: inline-block;
+    background: var(--color-primary-lig);
+    color: var(--color-white);
+    position: fixed;
+    right: 0;
+    bottom: 4rem;
+    z-index: 1;
+    width: 2.5rem;
+    height: 4rem;
+    /* border: 4px solid red; */
+    border-radius: 50% 0 0 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: -1rem 0 2rem rgba(0, 0, 0, 0.2);
+  }
+
+  .dashboard aside a h5 {
+    display: inline-block;
+  }
+
+  #hide__sidebar-btn {
+    display: none;
+  }
 }
 
 /* ============ END OF SINGLE POST ============*/
@@ -669,27 +748,19 @@ footer ul a:hover {
 /* ================== GENERAL FORM ==================== */
 .form__section {
   display: grid;
-  /* place-content: center; */
   place-items: center;
   height: 100vh;
   text-align: center;
-  /* padding: 4rem; */
-  /* width: 100%; */
-  /* border: 4px solid rebeccapurple; */
 }
 
 .form__section-container {
   width: 40%;
   padding: 2rem;
-  /* border: 3px solid blanchedalmond; */
 }
 
 .form__section-container input {
   width: 90%;
   margin: 1rem 0;
-  /* margin: 5rem; */
-  /* width: var(--form-width); */
-  /* border: 3px solid green;   */
 }
 
 .alert__message {
@@ -754,6 +825,10 @@ select {
   margin-top: 8rem;
 }
 
+.dashboard__toggle {
+  display: none;
+}
+
 .dashboard__container {
   display: grid;
   grid-template-columns: 14rem auto;
@@ -815,8 +890,13 @@ select {
   transition: var(--transition);
 }
 
-/* 3:10:15 */
-/* 3:35:00 */
+.dashboard main table tr:hover td {
+  background-color: var(--color-bg);
+  color: var(--color-white);
+  cursor: default;
+  transition: var(--transition);
+}
+
 /* 3:46:00 */
 /* after completing this project  */
 /* take out print of all of this code */
